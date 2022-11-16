@@ -163,13 +163,14 @@ const LoginPage = () => {
             </Typography>
             <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
           </Box>
-          <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
-            <TextField autoFocus fullWidth id='email' label='Email' sx={{ marginBottom: 4 }} />
+          <form autoComplete='off' onSubmit={e => e.preventDefault()}>
+            <TextField autoFocus required fullWidth id='email' label='Email' sx={{ marginBottom: 4 }} />
             <FormControl fullWidth>
               <InputLabel htmlFor='auth-login-password'>Password</InputLabel>
               <OutlinedInput
                 label='Password'
                 value={values.password}
+                required
                 id='auth-login-password'
                 onChange={handleChange('password')}
                 type={values.showPassword ? 'text' : 'password'}

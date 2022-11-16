@@ -8,6 +8,7 @@ import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 import CreditCardOutline from 'mdi-material-ui/CreditCardOutline'
 import AccountPlusOutline from 'mdi-material-ui/AccountPlusOutline'
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
 
 const navigation = () => {
@@ -19,7 +20,7 @@ const navigation = () => {
     },
     {
       title: 'Users',
-      icon: HomeOutline,
+      icon: PeopleOutlineIcon,
       path: '/users'
     },
     {
