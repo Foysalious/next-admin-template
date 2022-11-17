@@ -171,7 +171,7 @@ const LoginPage = () => {
                 label='Password'
                 value={values.password}
                 required
-                id='auth-login-password'
+                id='auth-login-password' ø
                 onChange={handleChange('password')}
                 type={values.showPassword ? 'text' : 'password'}
                 endAdornment={
