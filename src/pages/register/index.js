@@ -1,5 +1,6 @@
 // ** React Imports
 import { useState, Fragment, useEffect } from 'react'
+
 // ** Next Imports
 import Link from 'next/link'
 import Router from 'next/router'
@@ -43,7 +44,6 @@ const Card = styled(MuiCard)(({ theme }) => ({
   [theme.breakpoints.up('sm')]: { width: '28rem' }
 }))
 
-
 const LinkStyled = styled('a')(({ theme }) => ({
   fontSize: '0.875rem',
   textDecoration: 'none',
@@ -82,23 +82,24 @@ const RegisterPage = () => {
 
   const handleSubmit = () => {
     const body = {
-      "name": username,
-      "emailOrMobile": email,
-      "password": values.password,
-      "is_supplier": 0
+      name: username,
+      emailOrMobile: email,
+      password: values.password,
+      is_supplier: 0
     }
     fetch('https://smanager-user.dev-sheba.xyz/api/v1/partners/37900/auth/register', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(body)
     }).then(response => {
       if (response.status == 200 || response.status == 201) Router.push('/register')
       else if (response.status == 500) Router.push('/500')
       else Router.push('/401')
     })
   }
+
   return (
     <Box className='content-center'>
       <Card sx={{ zIndex: 1 }}>
@@ -183,8 +184,21 @@ const RegisterPage = () => {
             <Typography variant='body2'>Make your app management easy and fun!</Typography>
           </Box>
           <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
-            <TextField fullWidth type='text' id='username' label='Username' sx={{ marginBottom: 4 }} onChange={(e) => setUserName(e.target.value)} />
-            <TextField fullWidth type='email' label='Email' sx={{ marginBottom: 4 }} onChange={(e) => setEmail(e.target.value)} />
+            <TextField
+              fullWidth
+              type='text'
+              id='username'
+              label='Username'
+              sx={{ marginBottom: 4 }}
+              onChange={e => setUserName(e.target.value)}
+            />
+            <TextField
+              fullWidth
+              type='email'
+              label='Email'
+              sx={{ marginBottom: 4 }}
+              onChange={e => setEmail(e.target.value)}
+            />
             <FormControl fullWidth>
               <InputLabel htmlFor='auth-register-password'>Password</InputLabel>
               <OutlinedInput
@@ -218,7 +232,14 @@ const RegisterPage = () => {
                 </Fragment>
               }
             />
-            <Button fullWidth size='large' type='submit' variant='contained' sx={{ marginBottom: 7 }} onClick={handleSubmit}>
+            <Button
+              fullWidth
+              size='large'
+              type='submit'
+              variant='contained'
+              sx={{ marginBottom: 7 }}
+              onClick={handleSubmit}
+            >
               Sign up
             </Button>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>

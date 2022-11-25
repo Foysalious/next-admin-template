@@ -1,6 +1,6 @@
 // ** React Imports
 import { useState } from 'react'
-import axios from "axios";
+import axios from 'axios'
 
 // ** Next Imports
 import Link from 'next/link'
@@ -84,16 +84,15 @@ const LoginPage = () => {
 
   const handleSubmit = () => {
     const body = {
-      "emailOrMobile": email,
-      "password": values.password,
+      emailOrMobile: email,
+      password: values.password
     }
-    axios
-      .post("https://smanager-user.dev-sheba.xyz/api/v1/partners/37900/auth/login", body)
-      .then((res) => {
-        localStorage.setItem("auth", res.data.token)
-        console.log( localStorage.getItem("auth"))
-      });
+    axios.post('https://smanager-user.dev-sheba.xyz/api/v1/partners/37900/auth/login', body).then(res => {
+      localStorage.setItem('auth', res.data.token)
+      console.log(localStorage.getItem('auth'))
+    })
   }
+
   return (
     <Box className='content-center'>
       <Card sx={{ zIndex: 1 }}>
@@ -178,14 +177,23 @@ const LoginPage = () => {
             <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
           </Box>
           <form autoComplete='off' onSubmit={e => e.preventDefault()}>
-            <TextField autoFocus required fullWidth id='email' label='Email' sx={{ marginBottom: 4 }} onChange={(e) => setEmail(e.target.value)} />
+            <TextField
+              autoFocus
+              required
+              fullWidth
+              id='email'
+              label='Email'
+              sx={{ marginBottom: 4 }}
+              onChange={e => setEmail(e.target.value)}
+            />
             <FormControl fullWidth>
               <InputLabel htmlFor='auth-login-password'>Password</InputLabel>
               <OutlinedInput
                 label='Password'
                 value={values.password}
                 required
-                id='auth-login-password' ø
+                id='auth-login-password'
+                ø
                 onChange={handleChange('password')}
                 type={values.showPassword ? 'text' : 'password'}
                 endAdornment={
@@ -210,13 +218,7 @@ const LoginPage = () => {
                 <LinkStyled onClick={e => e.preventDefault()}>Forgot Password?</LinkStyled>
               </Link>
             </Box>
-            <Button
-              fullWidth
-              size='large'
-              variant='contained'
-              sx={{ marginBottom: 7 }}
-              onClick={handleSubmit}
-            >
+            <Button fullWidth size='large' variant='contained' sx={{ marginBottom: 7 }} onClick={handleSubmit}>
               Login
             </Button>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
